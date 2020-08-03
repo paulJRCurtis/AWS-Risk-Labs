@@ -1,0 +1,56 @@
+AWSTemplateFormatVersion: 2010-09-09
+# This CloudFormation template deploys two VPCs in support 
+# of the Risk and Compliance Lab - pipeline controls intro lab.
+# The first VPC represents a testing environment and the second
+# a production environment.
+
+Description:  This template deploys a Test Environment VPC and a 
+  Prod Environment VPC. The Template is to be used as part of 
+  the pipeline-controls-intro Lab.
+
+Parameters:
+  BusinessOwner:
+    Description: Enter the name of the business owner for the VPC
+    Type: String
+
+Resources:
+  TestEnvVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.1.0.0/16
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+      - Key: environment-type
+        Value: testing
+      - Key: application-id
+        Value: risk-compliance-lab
+      - Key: Name
+        Value:  !Join ['', [!Ref "AWS::StackName", "-TEST-VPC" ]]
+      - Key: owner
+        Value: !Ref BusinessOwner
+    
+  ProdEnvVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.1.0.0/16
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+      - Key: environment-type
+        Value: production
+      - Key: application-id
+        Value: risk-compliance-lab
+      - Key: Name
+        Value:  !Join ['', [!Ref "AWS::StackName", "-PROD-VPC" ]]
+      - Key: owner
+        Value: !Ref BusinessOwner
+        
+Outputs:
+  TestEnvVPC:
+    Description: Test environment VPC name
+    Value: !Ref TestEnvVPC
+    
+  ProdEnvVPC:
+    Description: Production environment VPC name
+    Value: !Ref ProdEnvVPC

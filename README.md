@@ -1,9 +1,7 @@
 # AWS-Risk-Labs
 
-To complete this lab you will need to download three files.
-- basic-sg-3-cfn.json
-This is the CloudFormation script that will build our code pipeline.
-- codepipe-single-sg.zip  
-This file contains the CloudFormation scripts that will represent the change we are testing. It is a simple security group - A security group acts as a virtual firewall for your instance to control inbound and outbound traffic, and in this lab we are going to make sure it not open to the world before we allow it into production.  
-- codepipeline-lambda.zip  
-This file contains the code the code pipeline will run to execute the test against our change.
+These labs have been developed specifically with risk, compliance and controls assurance stakeholders in mind. AWS provides a wealth of services and tools to assist in effective management and governance and provides an unpresedented level of transperency. These labs aim to demonstrate how these services and the telemetry available on the platform can be used to automate controls assurance and provide a real time risk data. These labs have been designed to cater for the absolute beginner, building up to more advanced topics.
+
+This repository contains the code which supports the hands-on labs at... ADD LINK
+
+Some code, particularly that which supports the introductory labs maybe be simplified to demonstrate concepts rather than attempting to be production ready approaches.

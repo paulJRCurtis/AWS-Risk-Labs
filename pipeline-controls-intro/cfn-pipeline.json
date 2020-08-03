@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "AWS CloudFormation Sample Template Continuous Delievery: This template builds an AWS CodePipeline pipeline that implements a continuous delivery release process for AWS CloudFormation stacks. Submit a CloudFormation source artifact to an Amazon S3 location before building the pipeline. The pipeline uses the artifact to automatically create stacks and change sets. **WARNING** This template creates an Amazon EC2 instance. You will be billed for the AWS resources used when you create a stack using this template.\n",
+  "Description": "AWS CloudFormation Sample Template Continuous Delievery: This template builds an AWS CodePipeline pipeline that implements a continuous delivery release process for AWS CloudFormation stacks. The pipeline uses the artifact to automatically create stacks and change sets.",
   "Parameters": {
     "PipelineName": {
 	  "Default": "DemoPipeline",
@@ -83,7 +83,7 @@
             "TestStackName",
             "TemplateFileName",
             "TestStackConfig",
-			"TemplateFilePath"
+			      "TemplateFilePath"
           ]
         },
         {
@@ -142,7 +142,7 @@
         "Path":"/"
       }
     },	
-	"LambdaCodePipelineExecutionPolicy":{
+	  "LambdaCodePipelineExecutionPolicy":{
       "DependsOn":[
         "CodePipelineLambdaRole"
       ],
@@ -171,9 +171,9 @@
               "Action":[
                 "codepipeline:PutJobSuccessResult",
                 "codepipeline:PutJobFailureResult",
-				"s3:*",
-				"ec2:*",
-				"cloudformation:*"
+				        "s3:*",
+				        "ec2:*",
+				        "cloudformation:*"
               ],
               "Resource":[
                 "*"
@@ -342,7 +342,7 @@
                     "cloudformation:SetStackPolicy",
                     "iam:PassRole",
                     "sns:Publish",
-					"lambda:*"
+					          "lambda:*"
                   ],
                   "Effect": "Allow",
                   "Resource": "*"
@@ -498,7 +498,7 @@
                   "ActionMode": "CHANGE_SET_REPLACE",
                   "RoleArn": {"Fn::GetAtt":["CFNRole","Arn"]},
                   "StackName": {"Ref":"ProdStackName"},
-				  "ChangeSetName": {"Ref" : "ChangeSetName" },
+				          "ChangeSetName": {"Ref" : "ChangeSetName" },
                   "TemplateConfiguration": {"Fn::Sub": "TemplateSource::${ProdStackConfig}"},
                   "TemplatePath": {"Fn::Sub": "TemplateSource::${TemplateFilePath}"}
                 },
@@ -515,7 +515,7 @@
                 "Configuration": {
                   "ActionMode": "CHANGE_SET_EXECUTE",
                   "RoleArn": {"Fn::GetAtt":["CFNRole","Arn"]},
-				  "ChangeSetName": {"Ref" : "ChangeSetName" },
+				          "ChangeSetName": {"Ref" : "ChangeSetName" },
                   "StackName": {"Ref" : "ProdStackName" }
                 },
                 "RunOrder": "2"
