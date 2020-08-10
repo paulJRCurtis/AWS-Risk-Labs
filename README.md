@@ -4,6 +4,6 @@ These labs have been developed specifically with risk, compliance and controls a
 
 These labs have been designed to cater for the absolute beginner, building up to more advanced topics.
 
-This repository contains the code which supports the hands-on labs at... ADD LINK
+This repository contains the code which supports the hands-on labs at [Risk Lab Git Repo](https://pauljrcurtis.github.io/risk-lab-site/)
 
 Some code, particularly that which supports the introductory labs maybe be simplified to demonstrate concepts rather than attempting to be production ready approaches.

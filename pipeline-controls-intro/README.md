@@ -1,7 +1,8 @@
 # AWS-Risk-Labs
 ## Pipeline Controls Introduction
 
-To complete this lab you will need to download three files.
+To complete this lab you will need to download three files.  
+
 - basic-sg-3-cfn.json  
 This is the CloudFormation script that will build our code pipeline.
 - codepipe-single-sg.zip  
